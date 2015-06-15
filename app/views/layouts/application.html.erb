@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SampleApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <title><%= yield(:title) || "Your App name" %></title>
+  <meta name="description" content="<%= (yield(:description) || "").squish %>">
+
 </head>
 <body>
+  <!-- [...] -->
 
-<%= yield %>
-
+  <%= javascript_include_tag 'application' %>
+  <%= yield(:after_js) %>
 </body>
 </html>
